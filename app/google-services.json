@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "122701715186",
+    "firebase_url": "https://complaint-box-7ba7b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "complaint-box-7ba7b",
+    "storage_bucket": "complaint-box-7ba7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122701715186:android:41b8481ad10c254590226b",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122701715186-jui63v7b6dshc3kt45pj61qgse10otem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtHbNhUWDgwzjDQ2lpe8jEc-YMpLYxmHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122701715186-jui63v7b6dshc3kt45pj61qgse10otem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
