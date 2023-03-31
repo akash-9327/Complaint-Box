@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Complaint Box</string>
+    <string name="reg">Register</string>
+    <string name="log">Login</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+</resources>
