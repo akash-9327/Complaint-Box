@@ -18,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
         binding.txtCreateAcc.setOnClickListener{
             val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
             startActivity(intent)
+
         }
 
         binding.btnLogin.setOnClickListener{
