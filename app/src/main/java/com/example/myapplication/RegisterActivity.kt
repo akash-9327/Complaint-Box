@@ -44,6 +44,25 @@ class RegisterActivity : AppCompatActivity() {
 
             override fun onNothingSelected(arg0: AdapterView<*>?) {}
         }
+        val year = binding.year
+        val item = arrayOf(
+            "Select Academic Year",
+            "First Year",
+            "Second Year",
+            "Third Year"
+        )
+
+        val adapter1 =
+            ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, item)
+        year.adapter = adapter1
+
+        year.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(arg0: AdapterView<*>?, arg1: View?, arg2: Int, arg3: Long) {
+                val item1 = year.selectedItem.toString()
+            }
+            override fun onNothingSelected(arg0: AdapterView<*>?) {}
+        }
+
 
         binding.txtAlready.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
@@ -64,15 +83,21 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please fill the details", Toast.LENGTH_SHORT).show()
             } else if (dept == "Select Department") {
                 Toast.makeText(this, "Please select the department", Toast.LENGTH_SHORT).show()
-            }else if(conPass.toString() != pass.toString()){
+            }else if (dept == "Select Academic year") {
+                Toast.makeText(this, "Please select the Academic year", Toast.LENGTH_SHORT).show()
+            }
+            else if(conPass.toString() != pass.toString()){
                 Toast.makeText(this, "Password doesn't match!", Toast.LENGTH_SHORT).show()
             }
+
             else{
                 database = database.child(dept).child("Students").child(eno.toString())
                 database.child("name").setValue(name.toString())
                 database.child("email").setValue(email.toString())
                 database.child("mobile").setValue(mobile.toString())
                 database.child("password").setValue(pass.toString())
+
+
             }
         }
     }
