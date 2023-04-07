@@ -6,7 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#d500f9</color>
-    <color name="white">#FFFFFFFF</color>
-
-
+    <color name="white">#FFFFFF</color>
+    <color name="underLine">#656363</color>
+    <color name="searchbar">#C0BEBE</color>
 </resources>
