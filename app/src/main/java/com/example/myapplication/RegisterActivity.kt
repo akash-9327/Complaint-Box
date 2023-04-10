@@ -35,7 +35,7 @@ class RegisterActivity : AppCompatActivity() {
             "Chemical Engineering"
         )
         val adapter =
-            ArrayAdapter<String>(this, R.layout.simple_spinner_dropdown_item, items)
+            ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, items)
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -112,4 +112,5 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+
 }
