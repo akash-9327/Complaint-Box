@@ -13,27 +13,39 @@
        android:id="@+id/search_bar"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginLeft="15dp"
+       android:layout_marginLeft="5dp"
        android:layout_marginTop="10dp"
-       android:background="@drawable/searchview_background">
+       android:layout_marginRight="5dp"
+
+       android:background="@drawable/custom_edit_log">
 
    </androidx.appcompat.widget.SearchView>
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recyclerview"
+       android:layout_width="match_parent"
+       android:layout_height="730dp"
+       android:layout_marginTop="70dp"
+       app:layout_anchor="@+id/recyclerview"
+       app:layout_anchorGravity="center" />
 
    <com.google.android.material.bottomappbar.BottomAppBar
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:id="@+id/bottomAppbar"
+       android:background="@drawable/custom_edit_log"
     app:fabCradleMargin="20dp"
     app:fabCradleVerticalOffset="10dp"
     app:fabCradleRoundedCornerRadius="20dp">
 
 </com.google.android.material.bottomappbar.BottomAppBar>
+
    <com.google.android.material.bottomnavigation.BottomNavigationView
        android:id="@+id/bottomNavigationView"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:background="@android:color/transparent"
+       android:background="@drawable/custom_edit_log"
        app:layout_anchor="@+id/bottomAppbar"
        app:layout_anchorGravity="center"
        app:menu="@menu/nav_menu">
@@ -47,7 +59,8 @@
        android:src="@drawable/baseline_add"
        app:layout_anchor="@id/bottomAppbar"
        android:contentDescription="TODO"
-       />
+       android:background="@drawable/custom_edit_log"
+       tools:ignore="ContentDescription" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

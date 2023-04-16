@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+
     private fun checkEnoPass(eno: String, pass: String) {
         database = FirebaseDatabase.getInstance().getReference("Departments")
 
@@ -50,22 +51,26 @@ class LoginActivity : AppCompatActivity() {
                             studentData = yearSnapshot.child("Students").child(eno).getValue(StudentData::class.java)
                             if (studentData?.password == pass){
                                 isStudentFound = true
+                                val intent = Intent(this@LoginActivity, Dashboard::class.java)
+                                startActivity(intent)
+                                onDestroy(this@LoginActivity)
                                 break
                             }
                         }
                     }
                 }
 
-                if (isStudentFound){
-                    Toast.makeText(this@LoginActivity,"Login Successful! ${studentData?.name}",Toast.LENGTH_SHORT).show()
+                if (isStudentFound) {
+
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Login Successful! ${studentData?.name}",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
 
-                    binding.btnLogin.setOnClickListener {
-                        val intent = Intent(this@LoginActivity,Dashboard::class.java)
-                        startActivity(intent)
-                    finish()}
-
-                }else
+                }
+                else
                 {
                     Toast.makeText(this@LoginActivity,"Student not found or Incorrect Password",Toast.LENGTH_SHORT).show()
                 }
@@ -76,5 +81,10 @@ class LoginActivity : AppCompatActivity() {
             }
 
         })
+
+    }
+
+    private fun onDestroy(loginActivity: LoginActivity) {
+
     }
 }
