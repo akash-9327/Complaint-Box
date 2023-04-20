@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         database = FirebaseDatabase.getInstance().getReference("Departments")
-        sharedPreferences = getSharedPreferences("MyPreference", MODE_PRIVATE)
+        sharedPreferences = this.getSharedPreferences("MyPreference", MODE_PRIVATE)
 
         binding.txtCreateAcc.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -89,5 +89,9 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             }
         })
+
     }
+
+
+
 }

@@ -1,56 +1,58 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.myapplication
 
-
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
+import com.example.myapplication.databinding.ActivityDahsBinding
 
-@Suppress("DEPRECATION")
 class Dashboard : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDahsBinding
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dahs)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.setOnNavigationItemReselectedListener {
-            when (it.itemId) {
-                R.id.nav_home ->{
+        binding=ActivityDahsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+         replaceFragment(HomeFragment())
+        // Initialize the BottomNavigationView and set the listener
 
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.recyclerview,HomeFragment())
-                        .commit()
-                    Toast.makeText(this@Dashboard,"Home" ,Toast.LENGTH_SHORT).show()
-                   }
-
-                R.id.nav_profile ->
-                {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.recyclerview,ProfileFragment())
-                        .commit()
-                    Toast.makeText(this@Dashboard,"Profile" ,Toast.LENGTH_SHORT).show()
+  binding.bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    replaceFragment(HomeFragment())
+                    return@setOnNavigationItemSelectedListener true
                 }
-                R.id.nav_status ->
-            {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.recyclerview,StatusFragment())
-                    .commit()
-                Toast.makeText(this@Dashboard,"Status" ,Toast.LENGTH_SHORT).show()
-            }
-                R.id.nav_settings ->
-                {  supportFragmentManager.beginTransaction()
-                    .replace(R.id.recyclerview,SettingFragment())
-                    .commit()
-                    Toast.makeText(this@Dashboard,"Settings" ,Toast.LENGTH_SHORT).show()
+                R.id.nav_status -> {
+                    replaceFragment(StatusFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.nav_profile -> {
+                    replaceFragment(ProfileFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.nav_settings -> {
+                    replaceFragment(SettingFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                else -> {
+                    return@setOnNavigationItemSelectedListener false
                 }
             }
-
         }
     }
 
-
+    private fun replaceFragment(fragment:Fragment) {
+        val fragmentManager=supportFragmentManager
+        val fragmentTransaction =fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.layouts,fragment)
+        fragmentTransaction.commit()
+    }
 }
+
 
 
 
