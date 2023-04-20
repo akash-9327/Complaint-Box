@@ -26,10 +26,9 @@
         android:id="@+id/Messagebox"
         android:textColor="@color/purple_200"
         android:textSize="16sp"
-        android:text="Atharva Gawali"
+        android:text="@string/atharva_gawali"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toEndOf="@+id/title_image"
         tools:ignore="MissingConstraints" />
 

@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 
 
-
-class StatusFragment : Fragment() {
+class SettingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-val view= inflater.inflate(R.layout.fragment_status, container, false)
-    return (view)
+val view=inflater.inflate(R.layout.fragment_setting, container, false)
+        return(view)
     }
 
 }

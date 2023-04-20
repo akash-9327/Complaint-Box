@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.myapplication.MessageFragment"
+        android:name="com.example.myapplication.SettingFragment"
         android:label="fragment_message"
-        tools:layout="@layout/fragment_message" />
+        tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/statusFragment"
         android:name="com.example.myapplication.StatusFragment"

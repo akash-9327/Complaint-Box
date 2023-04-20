@@ -1,90 +1,93 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginBinding
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var database: DatabaseReference
-
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        database = FirebaseDatabase.getInstance().getReference("Departments")
+        sharedPreferences = getSharedPreferences("MyPreference", MODE_PRIVATE)
 
-        binding.txtCreateAcc.setOnClickListener{
-            val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
+        binding.txtCreateAcc.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
-
         }
 
-        binding.btnLogin.setOnClickListener{
-            val eno = binding.etUsername.text
-            val pass = binding.etPassword.text
+        binding.btnLogin.setOnClickListener {
+            val eno = binding.etUsername.text.toString()
+            val pass = binding.etPassword.text.toString()
 
-            if (eno.isBlank() || pass.isBlank()){
-                Toast.makeText(this,"Please fill the details",Toast.LENGTH_SHORT).show()
-            }else{
-                checkEnoPass(eno.toString(),pass.toString())
+            if (eno.isBlank() || pass.isBlank()) {
+                Toast.makeText(this, "Please fill the details", Toast.LENGTH_SHORT).show()
+            } else {
+                // Save username and password to SharedPreferences
+                sharedPreferences.edit().apply {
+                    putString("username", eno)
+                    putString("password", pass)
+                    apply()
+                }
+                checkEnoPass(eno, pass)
             }
         }
     }
 
-
     private fun checkEnoPass(eno: String, pass: String) {
-        database = FirebaseDatabase.getInstance().getReference("Departments")
-
-        database.addListenerForSingleValueEvent(object : ValueEventListener{
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var isStudentFound = false
-                var studentData:StudentData? = StudentData()
+                var studentData: StudentData? = null
 
-                for (departmentSnapshot in snapshot.children){
-                    for (yearSnapshot in departmentSnapshot.children){
-                        if (yearSnapshot.child("Students").child(eno).exists()){
-                            studentData = yearSnapshot.child("Students").child(eno).getValue(StudentData::class.java)
-                            if (studentData?.password == pass){
-                                isStudentFound = true
-                                val intent = Intent(this@LoginActivity, Dashboard::class.java)
-                                startActivity(intent)
-                                onDestroy(this@LoginActivity)
-                                break
-                            }
+                for (departmentSnapshot in snapshot.children) {
+                    for (yearSnapshot in departmentSnapshot.children) {
+                        studentData = yearSnapshot.child("Students").child(eno).getValue<StudentData>()
+                        if (studentData != null && studentData.password == pass) {
+                            isStudentFound = true
+                            val intent = Intent(this@LoginActivity, Dashboard::class.java)
+                            startActivity(intent)
+                            finish()
+                            break
                         }
+                    }
+                    if (isStudentFound) {
+                        break
                     }
                 }
 
                 if (isStudentFound) {
-
                     Toast.makeText(
                         this@LoginActivity,
                         "Login Successful! ${studentData?.name}",
                         Toast.LENGTH_SHORT
                     ).show()
-
-
-                }
-                else
-                {
-                    Toast.makeText(this@LoginActivity,"Student not found or Incorrect Password",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Student not found or Incorrect Password",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Error: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-
         })
-
-    }
-
-    private fun onDestroy(loginActivity: LoginActivity) {
-
     }
 }
