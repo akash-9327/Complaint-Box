@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
         )
 
         val adapter1 =
-            ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, item)
+            ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,item)
         year.adapter = adapter1
 
         year.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

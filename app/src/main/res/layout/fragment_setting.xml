@@ -3,12 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SettingFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="SettingFragment">
 
-    <TextView
-        android:id="@+id/thirdfragment"
+    <Button
+        android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Logout"
+
+        />
+
 </FrameLayout>

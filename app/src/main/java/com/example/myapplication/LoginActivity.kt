@@ -21,6 +21,15 @@ class LoginActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("Departments")
         sharedPreferences = this.getSharedPreferences("MyPreference", MODE_PRIVATE)
 
+        // Load the saved username and password from SharedPreferences
+        val savedUsername = sharedPreferences.getString("username", null)
+        val savedPassword = sharedPreferences.getString("password", null)
+        if (savedUsername != null && savedPassword != null) {
+            binding.etUsername.setText(savedUsername)
+            binding.etPassword.setText(savedPassword)
+            checkEnoPass(savedUsername, savedPassword)
+        }
+
         binding.txtCreateAcc.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -43,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun checkEnoPass(eno: String, pass: String) {
         database.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -95,3 +105,4 @@ class LoginActivity : AppCompatActivity() {
 
 
 }
+
