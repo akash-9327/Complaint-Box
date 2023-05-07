@@ -10,14 +10,11 @@
     android:layout_marginBottom="4dp" >
 
 
-
    <LinearLayout
        android:id="@+id/layouts"
        android:layout_width="match_parent"
-       android:layout_height="541dp"
-       android:layout_marginTop="55dp"
+       android:layout_height="match_parent"
        android:orientation="horizontal" />
-
 
    <com.google.android.material.bottomappbar.BottomAppBar
     android:layout_width="match_parent"
