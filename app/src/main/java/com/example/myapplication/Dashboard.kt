@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import HomeFragment
 import SettingFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +56,7 @@ class Dashboard : AppCompatActivity() {
             // Show a Toast message
             Toast.makeText(this, "FAB Clicked", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -64,6 +64,10 @@ class Dashboard : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.layouts, fragment)
         fragmentTransaction.commit()
+
+
+
     }
+
 }
 

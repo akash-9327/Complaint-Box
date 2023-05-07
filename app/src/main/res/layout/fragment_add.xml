@@ -1,17 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="AddFragment"
+    >
 
-    android:layout_marginBottom="50dp"
-    android:gravity="center">
-        
-        
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="#C9A7EB"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_marginTop="0dp">
 
 
-    
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageview"
+            android:src="@drawable/baseline_keyboard_backspace_24"
+            app:tint="@color/white"
+            android:contentDescription="TODO" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etName"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="name"
+            android:layout_marginLeft="100dp">
+
+        </TextView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileimages"
+            android:src="@drawable/person"
+            android:layout_marginLeft="200dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+       android:layout_marginTop="550dp"
+        android:layout_weight="1"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@color/Lavender">
+
+
+
+        <EditText
+            android:id="@+id/messagebox"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/transparent_background"
+            android:gravity="start"
+            android:hint="write a message"
+            android:padding="10dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="1dp"
+            android:textColorHint="#424242"
+            android:textSize="15dp"
+            android:textStyle="bold">
+
+        </EditText>
+
+        <ImageView
+            android:id="@+id/attachment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:contentDescription="TODO"
+            android:padding="10dp"
+            android:src="@drawable/baseline_attachment_24">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/send"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:contentDescription="TODO"
+            android:padding="10dp"
+            android:src="@drawable/baseline_send">
+
+        </ImageView>
+
+    </LinearLayout>
+
+
 
 
 
