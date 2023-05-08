@@ -42,12 +42,6 @@ class LoginActivity : AppCompatActivity() {
             if (eno.isBlank() || pass.isBlank()) {
                 Toast.makeText(this, "Please fill in the details", Toast.LENGTH_SHORT).show()
             } else {
-                // Save username and password to SharedPreferences
-                sharedPreferences.edit().apply {
-                    putString("username", eno)
-                    putString("password", pass)
-                    apply()
-                }
                 checkEnoPass(eno, pass)
             }
         }
@@ -62,8 +56,19 @@ class LoginActivity : AppCompatActivity() {
                 for (departmentSnapshot in snapshot.children) {
                     for (yearSnapshot in departmentSnapshot.children) {
                         studentData = yearSnapshot.child("Students").child(eno).getValue<StudentData>()
+
                         if (studentData != null && studentData.password == pass) {
                             isStudentFound = true
+                            sharedPreferences.edit().apply {
+                                putString("username", eno)
+                                putString("password", pass)
+                                putString("name", studentData.name)
+                                putString("department", departmentSnapshot.key)
+                                putString("year", yearSnapshot.key)
+                                putString("gender", studentData.gender)
+                                putString("email", studentData.email)
+                                apply()
+                            }
                             val intent = Intent(this@LoginActivity, Dashboard::class.java)
                             startActivity(intent)
                             finish()

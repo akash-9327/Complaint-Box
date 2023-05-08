@@ -6,104 +6,74 @@
     android:layout_height="match_parent"
     tools:context="AddFragment">
 
-    <androidx.appcompat.widget.Toolbar
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="#C9A7EB"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_marginTop="0dp">
+        android:layout_height="match_parent">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Add Complaint"
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
 
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageview"
-            android:src="@drawable/baseline_keyboard_backspace_24"
-            app:tint="@color/white"
-            android:contentDescription="TODO" />
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/cmpTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/etName"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="name"
-            android:layout_marginLeft="100dp">
-
-        </TextView>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/profileimages"
-            android:src="@drawable/person"
-            android:layout_marginLeft="200dp" />
-
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-       android:layout_marginTop="550dp"
-        android:layout_weight="1"
-        android:baselineAligned="true"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/searchview_background"
-        android:backgroundTint="@color/Lavender"
-        android:outlineAmbientShadowColor="@color/Lavender"
-        android:elevation="60dp">
-
-
+            android:layout_below="@+id/cardView"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="12dp"
+            android:text="Complaint Title"
+            android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/messagebox"
-            android:layout_width="310dp"
-            android:layout_height="40dp"
-            android:background="@drawable/searchview_background"
-            android:backgroundTint="@color/white"
-            android:gravity="start"
-            android:hint="write a message"
-            android:padding="8dp"
-            android:textColorHint="#424242"
+            android:id="@+id/cmpTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cmpTitle"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:hint="Enter Complaint Title"
+            android:inputType="text" />
 
-            android:textStyle="bold"
-            android:scrollbars="vertical">
-        </EditText>
+        <TextView
+            android:id="@+id/cmpDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cmpTitleText"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="12dp"
+            android:text="Complaint Description"
+            android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/attachment"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
-            android:layout_weight="3"
-            android:contentDescription="TODO"
-            android:padding="5dp"
-            android:src="@drawable/baseline_attachment_24">
+        <EditText
+            android:id="@+id/cmpDescText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cmpDesc"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:hint="Enter Complaint Description"
+            android:inputType="text" />
 
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/send"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
-            android:layout_weight="3"
-            android:contentDescription="TODO"
-            android:padding="5dp"
-            android:src="@drawable/baseline_send">
-
-        </ImageView>
-    </LinearLayout>
-
-
-
-
-
-
+        <Button
+            android:id="@+id/cmpSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cmpDescText"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="Submit" />
+    </RelativeLayout>
 </FrameLayout>

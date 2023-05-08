@@ -56,7 +56,6 @@ class Dashboard : AppCompatActivity() {
             // Show a Toast message
             Toast.makeText(this, "FAB Clicked", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
