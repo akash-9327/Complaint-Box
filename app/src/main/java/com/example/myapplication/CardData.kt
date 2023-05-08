@@ -1,3 +1,8 @@
 package com.example.myapplication
 
-data class CardData(val title: String, val description: String)
+data class CardData(
+    val name: String,
+    val email: String,
+) {
+    constructor() : this("", "")
+}

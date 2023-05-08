@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="AddFragment"
-    >
+    tools:context="AddFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -55,48 +54,51 @@
         android:baselineAligned="true"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:background="@color/Lavender">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/searchview_background"
+        android:backgroundTint="@color/Lavender"
+        android:outlineAmbientShadowColor="@color/Lavender"
+        android:elevation="60dp">
 
 
 
         <EditText
             android:id="@+id/messagebox"
             android:layout_width="310dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/transparent_background"
+            android:layout_height="40dp"
+            android:background="@drawable/searchview_background"
+            android:backgroundTint="@color/white"
             android:gravity="start"
             android:hint="write a message"
-            android:padding="10dp"
-            android:paddingStart="5dp"
-            android:paddingEnd="1dp"
+            android:padding="8dp"
             android:textColorHint="#424242"
-            android:textSize="15dp"
-            android:textStyle="bold">
 
+            android:textStyle="bold"
+            android:scrollbars="vertical">
         </EditText>
 
         <ImageView
             android:id="@+id/attachment"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
             android:layout_weight="3"
             android:contentDescription="TODO"
-            android:padding="10dp"
+            android:padding="5dp"
             android:src="@drawable/baseline_attachment_24">
 
         </ImageView>
 
         <ImageView
             android:id="@+id/send"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
             android:layout_weight="3"
             android:contentDescription="TODO"
-            android:padding="10dp"
+            android:padding="5dp"
             android:src="@drawable/baseline_send">
 
         </ImageView>
-
     </LinearLayout>
 
 

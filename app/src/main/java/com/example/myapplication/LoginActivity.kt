@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             val pass = binding.etPassword.text.toString()
 
             if (eno.isBlank() || pass.isBlank()) {
-                Toast.makeText(this, "Please fill the details", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in the details", Toast.LENGTH_SHORT).show()
             } else {
                 // Save username and password to SharedPreferences
                 sharedPreferences.edit().apply {
@@ -52,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
 
     private fun checkEnoPass(eno: String, pass: String) {
         database.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -99,10 +98,6 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             }
         })
-
     }
-
-
-
 }
 

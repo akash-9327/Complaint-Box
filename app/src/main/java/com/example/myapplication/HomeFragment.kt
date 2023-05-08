@@ -7,11 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment(), CardAdapter.OnItemClickListener {
 
     private lateinit var adapter: CardAdapter
-    private lateinit var dataList: List<CardData>
+    private lateinit var dataList: MutableList<CardData>
+    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,21 +28,32 @@ class HomeFragment : Fragment(), CardAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViews)
 
-
-        // Define the data to be displayed
-        dataList = listOf(
-            CardData("Title 1", "Description 1"),
-            CardData("Title 2", "Description 2"),
-            CardData("Title 3", "Description 3"),
-            CardData("Title 4", "Description 4")
-        )
+        database = Firebase.database.reference
 
         // Initialize the RecyclerView and its adapter
+        dataList = mutableListOf()
         adapter = CardAdapter(dataList)
-        adapter.setOnItemClickListener(this)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Read data from the Firebase Realtime Database
+        database.child("user").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                dataList.clear()
+                for (cardSnapshot in snapshot.children) {
+                    val cardData = cardSnapshot.getValue(CardData::class.java)
+                    if (cardData != null) {
+                        dataList.add(cardData)
+                    }
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+            }
+        })
 
         return view
     }
