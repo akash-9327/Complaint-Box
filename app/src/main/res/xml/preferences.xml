@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="name"
+        android:title="Name"
+        android:defaultValue="John Doe"
+        android:dialogTitle="Enter your name"
+        android:summary="Your name will appear as [name] in the app"
+        android:inputType="text"/>
+    <EditTextPreference
+        android:key="age"
+        android:title="Age"
+        android:defaultValue="30"
+        android:dialogTitle="Enter your age"
+        android:summary="Your age will appear as [age] in the app"
+        android:inputType="number"/>
+    <EditTextPreference
+        android:key="email"
+        android:title="Email"
+        android:defaultValue="johndoe@example.com"
+        android:dialogTitle="Enter your email"
+        android:summary="Your email will appear as [email] in the app"
+        android:inputType="textEmailAddress"/>
+</PreferenceScreen>
