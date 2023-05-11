@@ -8,10 +8,19 @@ import android.widget.Button
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
+import com.example.myapplication.HomeFragment
 import com.example.myapplication.LoginActivity
 import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityDahsBinding
+import com.example.myapplication.databinding.FragmentAddBinding
+import com.example.myapplication.databinding.FragmentSettingBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SettingFragment : Fragment() {
+    private lateinit var binding: FragmentSettingBinding
+   private lateinit var bond :ActivityDahsBinding
+    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,5 +44,15 @@ class SettingFragment : Fragment() {
         }
 
         return view
+
+
+        val name:String = binding.Peronalname.text.toString()
+        val dep:String =binding.Branch.text.toString()
+if (name.isNotEmpty())
+{
+
+}
+
     }
+
 }

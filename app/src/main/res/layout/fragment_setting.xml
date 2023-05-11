@@ -8,68 +8,150 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp">
         <!-- Header -->
         <TextView
-            android:text="Settings"
-            android:textSize="25sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textStyle="bold"
-            />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal">
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+
+
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilepic"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="80dp"
                 android:src="@drawable/ak"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Peronalname"
-            android:text="Akash"
+            android:text="Akash Kapse"
             android:textColor="@color/purple_200"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="135dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/EmailAddress"
-            android:text="akashkapse272004@gmail.com"
+            android:id="@+id/Branch"
+            android:text="Information Technology"
             android:textColor="@color/purple_200"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="137dp"/>
 
-            <Button
-                android:id="@+id/btn_logout"
-                android:layout_width="wrap_content"
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="30dp"
+            android:text="Email">
+
+        </TextView>
+            <EditText
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:text="Logout"
-                android:layout_marginTop="550dp"
-                android:layout_marginLeft="10dp"
-                />
+                android:layout_marginTop="240dp"
+                android:layout_marginLeft="30dp"
+                android:text="akashkapse70@gmail.com">
 
-        </LinearLayout>
+            </EditText>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="30dp"
+            android:text="Mobile no:">
 
-        </LinearLayout>
+        </TextView>
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="30dp"
+            android:text="8624036836">
+
+        </EditText>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="370dp"
+            android:layout_marginLeft="30dp"
+            android:text="Complaint no :">
+
+        </TextView>
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="390dp"
+            android:layout_marginLeft="30dp"
+            android:text="one">
+
+        </EditText>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="30dp"
+            android:text="Parents no:">
+
+        </TextView>
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="470dp"
+            android:layout_marginLeft="25dp"
+            android:text="9657491062">
+
+        </EditText>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="520dp"
+            android:layout_marginLeft="30dp"
+            android:text="HOD">
+
+        </TextView>
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="540dp"
+            android:layout_marginLeft="25dp"
+            android:text="Mr. U. A. Bagade">
+
+        </EditText>
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="105dp"
+            android:layout_marginTop="600dp"
+            android:gravity="center"
+            android:text="Logout" />
+
 
 
     </RelativeLayout>
+
+
+
+
+
+
 
 </LinearLayout>
 
